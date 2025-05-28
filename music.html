@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamX - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+ <style>
+  main { flex: 1; 
+  }
+
+  main h4 { margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+  .logo { font-weight: bold; font-size: 1.5rem; }
+  header nav button { border-color: white; color: white; transition: all 0.3s ease-in-out; }
+  header nav button:hover { background-color: white; color: #dc3545; }
+
+/* Responsive tweaks */
+  @media (max-width: 768px) { aside { display: none; }
+  .container-fluid > .row > main { width: 100%; }
+  /* Make the header buttons stacked on mobile */ 
+  header nav { flex-direction: column; align-items: center; } }
+
+   /* current  styles */
+  .bg-custom-orange { background-color: #0d1b2a } /* Player controls background */
+  .btn-custom-orange { background-color: #ff7200; /* Button colours */
+                       color: white;
+                       border: none;}
+
+   btn-custom-orange:hover { background-color: #e66a00; /* Slightly darker orange for hover effect */
+                             color: white; }
+
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    border-radius: 10px; /* Current */ }
+
+     /* Interactive elements styling */
+
+     /* Wave Animation */
+    @keyframes wave {
+      0%,
+      100% {
+        transform: scaleY(1);
+      }
+
+      50% {
+        transform: scaleY(2);
+      }
+    }
+
+    .wave {
+      display: inline-block;
+      width: 3px;
+      background: #ff5722;
+      animation: wave 1s infinite ease-in-out;
+    }
+  #progressBar {
+    height: 4px; /* Adjust the height to make it thinner */
+    background-color: #ff7200; /* Optional: Change the background color */
+    border-radius: 2px; /* Optional: Add rounded corners */}
+
+    /* Ensure spacing between advert and controls */
+    #player-controls {
+    margin-top: 20px; /* Add spacing above the controls */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better visibility */}
+
+    /* Adjust the Now Playing section */
+    .now-playing {
+      max-width: 70%; /* Ensure it doesn't take too much space */}
+    #player-controls .btn {
+      padding: 5px 10px; /* Adjust button size */}
+    /* Reduce space between "Upgrade Your Sound!" and "Shop Now" */
+    #player-controls .btn-custom-orange {
+      margin-top: 5px; /* Reduced margin */}
+    /* Ensure "Now Playing" section takes full width */
+    .now-playing {
+      display: flex;
+      align-items: center;
+      gap: 10px; /* Space between album art and text */
+      width: 100%; /* Full width */
+      justify-content: flex-start; /* Align content to the left */}
+    /* Center align text in the Now Playing section */
+      .now-playing p {
+      text-align: center; 
+      color:#ff7200; /* Change text color to match the theme */}
+    /* Adjust control buttons */
+    #player-controls .d-flex {
+      margin-top: 10px; /* Add spacing above buttons */
+      justify-content: center; /* Center align buttons */
+      gap: 10px; /* Space between buttons */}
+
+    /* Reduce whitespace in the ad section */
+    .col-md-2.bg-dark {
+      padding: 10px; /* Reduce padding */}
+  </style>
+</head>
+<body class="bg-success text-white">
+
+<!-- Primary Sticky Navbar (Collapsible) -->
+<nav class="navbar navbar-expand-md navbar-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold fs-3" href="index.html">StreamX</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+      <ul class="navbar-nav gap-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="music.html">Play Music</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Offcanvas Playlist for Mobile -->
+<div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="mobilePlaylist">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Your Playlist</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="nav flex-column">
+      <li class="nav-item"><a href="#" class="nav-link text-white">1. Vibes Only</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">2. Party Bangers</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">3. Chill Mode</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">4. Workout Boost</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="container-fluid">
+  <div class="row">
+    <!-- Leftbar -->
+    <nav class="col-md-2 bg-dark p-3 d-none d-md-block" style="position: sticky; top: 0; height: 100vh; overflow-y: auto;">
+      <h5 class="mb-3"> Playlists</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Vibes Only</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Party Bangers</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Chill Mode</a></li>
+        <hr class="text-white" />
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Workout Boost</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Road Trip</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Study Beats</a></li>
+        <hr class="text-white" />
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Favorites</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Recently Played</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Top Charts</a></li>
+        <hr class="text-white" />
+        <li class="nav-item"><a href="#" class="nav-link text-white"> New Releases</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Discover Weekly</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Daily Mix</a></li>
+      </ul>
+    </nav>
+
+    
+    <!-- Main -->
+    <main class="col-md-8 p-4">
+      <h2 class="mb-4">Welcome to StreamX</h2>
+      <img src=".jpg" class="img-fluid rounded mb-4" alt="Hero Image">
+      <h4 class="mb-3">Discover Your Next Favorite Track</h4>
+      <p>StreamX is your ultimate destination for music streaming. Whether you're into pop, rock, hip-hop, or electronic, we have something for everyone.</p>
+      
+
+      <h4 class="mt-5 mb-3">Electronic</h4>
+      <div class="d-flex overflow-auto gap-3 pb-3">
+        <!--Add a data-song attribute to each "Play" button to store the song path. This allows JavaScript to dynamically retrieve the song path when the button is clicked.-->
+        <div class="card glassmorphism text-white" style="width: 200px;">
+          <img src="codplay.jpg" class="card-img-top" alt="Artist 1">
+          <div class="card-body">
+            <h5 class="card-title">Major Lazer</h5>
+            <p class="card-text">Coldplay</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="Major_Lazer_-_Cold_Water__feat._Justin_Bieber___MØ__[Official_Dance_Video](128k).m4a">Play</button>
+          </div>
+        </div>
+        
+        <div class="card glassmorphism text-white" style="width: 200px;">
+          <img src="2.jpg" class="card-img-top" alt="Artist 2">
+          <div class="card-body">
+            <h5 class="card-title">Francis_Mercier</h5>
+            <p class="card-text">Kamili</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="C:/Users/pmokh/Desktop/Francis_Mercier,_Nitefreak,_Idd_Aziz_-_Kamili__Official_Full_Stream_(128k).m4a">Play</button>
+          </div>
+        </div>
+        
+        <div class="card glassmorphism text-white" style="width: 200px;">
+          <img src="3.jpg" class="card-img-top" alt="Artist 1">
+          <div class="card-body">
+            <h5 class="card-title">Artist One</h5>
+            <p class="card-text">Hit Single: "Lights On"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+        <div class="card glassmorphism text-white" style="width: 200px;">
+          <img src="4.jpg" class="card-img-top" alt="Artist 1">
+          <div class="card-body">
+            <h5 class="card-title">Artist One</h5>
+            <p class="card-text">Hit Single: "Lights On"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+     </div>
+
+     <h4 class="mt-5 mb-3">Trending Now</h4>
+
+
+      <div class="d-flex overflow-auto gap-3 pb-3">
+        <div class="card glassmorphism text-white" style="min-width: 200px;">
+          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
+          <div class="card-body">
+            <h5 class="card-title">Artist One</h5>
+            <p class="card-text">Hit Single: "Lights On"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+        
+        <div class="card glassmorphism text-white" style="min-width: 200px;">
+          <img src="images/artist2.jpg" class="card-img-top" alt="Artist 2">
+          <div class="card-body">
+            <h5 class="card-title">Artist Two</h5>
+            <p class="card-text">Album: "Red Reign"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+        
+        <div class="card glassmorphism text-white" style="min-width: 200px;">
+          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
+          <div class="card-body">
+            <h5 class="card-title">Artist One</h5>
+            <p class="card-text">Hit Single: "Lights On"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+        <div class="card glassmorphism text-white" style="min-width: 200px;">
+          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
+          <div class="card-body">
+            <h5 class="card-title">Artist One</h5>
+            <p class="card-text">Hit Single: "Lights On"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+     </div>
+
+     <h4 class="mt-5 mb-3">Trending Now</h4>
+      <div class="d-flex overflow-auto gap-3 pb-3">
+        <div class="card glassmorphism text-white" style="min-width: 200px;">
+          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
+          <div class="card-body">
+            <h5 class="card-title">Artist One</h5>
+            <p class="card-text">Hit Single: "Lights On"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+        <div class="card glassmorphism text-white" style="min-width: 200px;">
+          <img src="images/artist2.jpg" class="card-img-top" alt="Artist 2">
+          <div class="card-body">
+            <h5 class="card-title">Artist Two</h5>
+            <p class="card-text">Album: "Red Reign"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+        
+        <div class="card glassmorphism text-white" style="min-width: 200px;">
+          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
+          <div class="card-body">
+            <h5 class="card-title">Artist One</h5>
+            <p class="card-text">Hit Single: "Lights On"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+        <div class="card glassmorphism text-white" style="min-width: 200px;">
+          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
+          <div class="card-body">
+            <h5 class="card-title">Artist One</h5>
+            <p class="card-text">Hit Single: "Lights On"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+     </div>
+
+     <h4 class="mt-5 mb-3">Trending Now</h4>
+      <div class="d-flex overflow-auto gap-3 pb-3">
+        <div class="card glassmorphism text-white" style="min-width: 200px;">
+          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
+          <div class="card-body">
+            <h5 class="card-title">Artist One</h5>
+            <p class="card-text">Hit Single: "Lights On"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+        <div class="card glassmorphism text-white" style="min-width: 200px;">
+          <img src="images/artist2.jpg" class="card-img-top" alt="Artist 2">
+          <div class="card-body">
+            <h5 class="card-title">Artist Two</h5>
+            <p class="card-text">Album: "Red Reign"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+        
+        <div class="card glassmorphism text-white" style="min-width: 200px;">
+          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
+          <div class="card-body">
+            <h5 class="card-title">Artist One</h5>
+            <p class="card-text">Hit Single: "Lights On"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+        <div class="card glassmorphism text-white" style="min-width: 200px;">
+          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
+          <div class="card-body">
+            <h5 class="card-title">Artist One</h5>
+            <p class="card-text">Hit Single: "Lights On"</p>
+            <button class="btn btn-custom-orange w-100">Play</button>
+          </div>
+        </div>
+     </div>
+    
+    </main>
+
+    <!-- Ad Section -->
+    <!-- Ad Section -->
+     <!-- Ad Section -->
+    <!-- Add this hidden audio element near the top of the body -->
+<audio id="globalAudioPlayer" style="display: none;"></audio>
+
+<!-- Updated ad section with working controls -->
+<aside class="col-md-2 bg-dark p-3 d-none d-md-block" style="position: sticky; top: 0; height: 100vh; overflow-y: auto;">
+  <h5 class="mb-3 text-warning">Sponsored</h5>
+  <div class="d-flex flex-column align-items-center text-center">
+    <img src="ad.jpg" alt="Ad Banner" class="img-fluid rounded mb-3" style="width: 100%; height: auto;">
+    <p class="mb-1"><strong>Upgrade Your Sound!</strong></p>
+    <a href="#" class="btn btn-custom-orange btn-sm mb-3">Shop Now</a>
+  </div>
+
+  <!-- Updated Player Controls -->
+  <!-- PASTE THIS INSTEAD -->
+<div id="player-controls" class="bg-custom-orange text-white p-3">
+  <div class="d-flex gap-1">
+    <div class="wave" style="height: 15px; animation-duration: 1s;"></div>
+    <div class="wave" style="height: 20px; animation-duration: 1.2s;"></div>
+    <div class="wave" style="height: 10px; animation-duration: 0.8s;"></div>
+  </div>
+  <div class="progress mb-2" style="height: 4px;">
+    <div id="progressBar" class="progress-bar bg-warning" role="progressbar" style="width: 0%">
+    </div>
+  </div>
+  <div class="now-playing bg-dark text-white p-2 rounded mb-3">
+    <p class="mb-1" id="currentSongTitle">No song playing</p>
+    <p class="mb-0 text-muted" id="currentArtist">-</p>
+  </div>
+  <div class="d-flex justify-content-center gap-2">
+    <button class="btn btn-dark btn-sm" onclick="skipBackward()">
+      <i class="bi bi-skip-backward-fill"></i>
+    </button>
+    <button class="btn btn-dark btn-sm" onclick="togglePlayPause()" id="playPauseBtn">
+      <i class="bi bi-play-fill" id="playPauseIcon"></i>
+    </button>
+    <button class="btn btn-dark btn-sm" onclick="skipForward()">
+      <i class="bi bi-skip-forward-fill"></i>
+    </button>
+  </div>
+</div>
+</aside>
+    <!-- Ad Section End -->
+    <!-- ... (previous code remains unchanged) ... -->
+
+    <!-- Ad Section End -->
+  </div> <!-- Close the first row -->
+
+</div> <!-- Close container-fluid -->
+
+ <!-- Footer -->
+ <footer class="text-center py-4">
+  <p class="mb-0">&copy; 2025 StreamX. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  //uSe JavaScript to add event listeners to all buttons with the play-button class. When a button is clicked, the corresponding song is played.
+
+  // Add event listeners to all play buttons
+  document.addEventListener('DOMContentLoaded', () => {
+  const audioPlayer = document.querySelector('#globalAudioPlayer');
+  const playPauseIcon = document.querySelector('#playPauseIcon');
+  const muteIcon = document.querySelector('#muteIcon');
+  const repeatIcon = document.querySelector('#repeatIcon');
+  let isRepeating = false;
+
+  // Toggle Play/Pause
+  function togglePlayPause() {
+    if (audioPlayer.paused) {
+      audioPlayer.play();
+      playPauseIcon.classList.remove('bi-play-fill');
+      playPauseIcon.classList.add('bi-pause-fill');
+    } else {
+      audioPlayer.pause();
+      playPauseIcon.classList.remove('bi-pause-fill');
+      playPauseIcon.classList.add('bi-play-fill');
+    }
+  }
+
+  // Skip Backward
+  function skipBackward() {
+    audioPlayer.currentTime = Math.max(0, audioPlayer.currentTime - 10); // Go back 10 seconds
+  }
+
+  // Skip Forward
+  function skipForward() {
+    audioPlayer.currentTime = Math.min(audioPlayer.duration, audioPlayer.currentTime + 10); // Go forward 10 seconds
+  }
+
+  // Toggle Mute
+  function toggleMute() {
+    audioPlayer.muted = !audioPlayer.muted;
+    if (audioPlayer.muted) {
+      muteIcon.classList.remove('bi-volume-up-fill');
+      muteIcon.classList.add('bi-volume-mute-fill');
+    } else {
+      muteIcon.classList.remove('bi-volume-mute-fill');
+      muteIcon.classList.add('bi-volume-up-fill');
+    }
+  }
+
+  // Increase Volume
+  function increaseVolume() {
+    if (audioPlayer.volume < 1) {
+      audioPlayer.volume = Math.min(audioPlayer.volume + 0.1, 1); // Increase volume by 0.1
+    }
+  }
+
+  // Decrease Volume
+  function decreaseVolume() {
+    if (audioPlayer.volume > 0) {
+      audioPlayer.volume = Math.max(audioPlayer.volume - 0.1, 0); // Decrease volume by 0.1
+    }
+  }
+
+  // Toggle Repeat
+  function toggleRepeat() {
+    isRepeating = !isRepeating;
+    audioPlayer.loop = isRepeating;
+    if (isRepeating) {
+      repeatIcon.classList.add('text-warning'); // Highlight the repeat icon
+    } else {
+      repeatIcon.classList.remove('text-warning');
+    }
+  }
+
+  // Play selected song
+  const playButtons = document.querySelectorAll('.play-button');
+  playButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const songPath = button.getAttribute('data-song');
+      if (songPath) {
+        audioPlayer.src = songPath; // Set the audio source
+        audioPlayer.play().catch(error => {
+          console.error('Error playing the audio:', error);
+        });
+        playPauseIcon.classList.remove('bi-play-fill');
+        playPauseIcon.classList.add('bi-pause-fill');
+      }
+    });
+  });
+});
+
+  // Update progress bar
+  const progressBar = document.querySelector('#progressBar');
+  const audioPlayer = document.querySelector('#globalAudioPlayer');
+  audioPlayer.addEventListener('timeupdate', () => {
+    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    progressBar.value = progress;
+  });
+
+  // Seek functionality
+  progressBar.addEventListener('input', () => {
+    const seekTime = (progressBar.value / 100) * audioPlayer.duration;
+    audioPlayer.currentTime = seekTime;
+  });
+  document.querySelectorAll('.play-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const songPath = button.dataset.song;
+    const songTitle = button.parentElement.querySelector('.card-title').textContent;
+    const artist = button.parentElement.querySelector('.card-text').textContent;
+    
+    audioPlayer.src = songPath;
+    document.getElementById('currentSongTitle').textContent = songTitle;
+    document.getElementById('currentArtist').textContent = artist;
+  });
+});
+</script>
+</body>
+</html>
