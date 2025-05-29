@@ -4,7 +4,9 @@ body {
     color: #ff5722;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
-  }
+  } 
+
+  .heading { color: #ff5722;}
   
   .navbar,
   footer {
@@ -229,7 +231,7 @@ body {
   
   /* Testimonials */
   .testimonial-card {
-    background: #8fbab0;
+    
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 2rem;
@@ -237,17 +239,16 @@ body {
   }
   
   /* Pricing */
+  .pricing {height: 100vh;}
+
   .pricing-card {
-    position: relative;
-    background: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: #8fb1ba;
     border-radius: 20px;
-    padding: 3rem 2rem;
-    box-shadow: 0 0 60px rgba(255, 87, 34, 0.1);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-    transform-style: preserve-3d;
-    cursor: pointer;
+    padding: 2rem;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .pricing-card:hover {
@@ -291,17 +292,19 @@ body {
   }
   
   .accordion-button {
-    background: transparent;
-    color: white;
-    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
   }
-  
-  .accordion-button:focus {
-    box-shadow: none;
+
+  .accordion-button:not(.collapsed) {
+    background-color: #00ffc3;
+    color: #000;
   }
-  
-  .accordion-button::after {
-    filter: invert(1);
+
+  .accordion-body {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #f1f1f1;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   /* Responsive */

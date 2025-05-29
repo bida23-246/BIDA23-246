@@ -8,10 +8,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
  <style>
-  main { flex: 1; 
+
+  /* Main */
+  main { flex: 1;     
   }
 
   main h4 { margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+  .leftbar { justify-content: center;}
 
   .logo { font-weight: bold; font-size: 1.5rem; }
   header nav button { border-color: white; color: white; transition: all 0.3s ease-in-out; }
@@ -59,6 +63,14 @@
       background: #ff5722;
       animation: wave 1s infinite ease-in-out;
     }
+
+    .leftbar { position: sticky; 
+               top: 0; 
+               height: 100vh; 
+               overflow-y: auto; }
+                
+
+    /* Aside */
   #progressBar {
     height: 4px; /* Adjust the height to make it thinner */
     background-color: #ff7200; /* Optional: Change the background color */
@@ -75,29 +87,23 @@
       max-width: 70%; /* Ensure it doesn't take too much space */}
     #player-controls .btn {
       padding: 5px 10px; /* Adjust button size */}
-    /* Reduce space between "Upgrade Your Sound!" and "Shop Now" */
     #player-controls .btn-custom-orange {
-      margin-top: 5px; /* Reduced margin */}
-    /* Ensure "Now Playing" section takes full width */
+      margin-top: 5px; /}
     .now-playing {
       display: flex;
       align-items: center;
       gap: 10px; /* Space between album art and text */
       width: 100%; /* Full width */
-      justify-content: flex-start; /* Align content to the left */}
-    /* Center align text in the Now Playing section */
+      justify-content: flex-start; }
       .now-playing p {
       text-align: center; 
-      color:#ff7200; /* Change text color to match the theme */}
-    /* Adjust control buttons */
+      color:#ff7200; }
     #player-controls .d-flex {
-      margin-top: 10px; /* Add spacing above buttons */
-      justify-content: center; /* Center align buttons */
+      margin-top: 10px; 
+      justify-content: center; 
       gap: 10px; /* Space between buttons */}
-
-    /* Reduce whitespace in the ad section */
     .col-md-2.bg-dark {
-      padding: 10px; /* Reduce padding */}
+      padding: 10px; /}
   </style>
 </head>
 <body class="bg-success text-white">
@@ -141,7 +147,7 @@
 <div class="container-fluid">
   <div class="row">
     <!-- Leftbar -->
-    <nav class="col-md-2 bg-dark p-3 d-none d-md-block" style="position: sticky; top: 0; height: 100vh; overflow-y: auto;">
+    <nav class="leftbar col-md-2 p-4 d-none d-md-block bg-dark" style="position: sticky; top: 0; height: 100vh; overflow-y: auto;">
       <h5 class="mb-3"> Playlists</h5>
       <ul class="nav flex-column">
         <li class="nav-item"><a href="#" class="nav-link text-white"> Vibes Only</a></li>
@@ -165,26 +171,22 @@
     
     <!-- Main -->
     <main class="col-md-8 p-4">
-      <h2 class="mb-4">Welcome to StreamX</h2>
-      <img src=".jpg" class="img-fluid rounded mb-4" alt="Hero Image">
-      <h4 class="mb-3">Discover Your Next Favorite Track</h4>
+      <h4 class="heading mb-3">Discover Your Next Favorite Track</h4>
       <p>StreamX is your ultimate destination for music streaming. Whether you're into pop, rock, hip-hop, or electronic, we have something for everyone.</p>
       
 
-      <h4 class="mt-5 mb-3">Electronic</h4>
+      <h4 class="heading mb-3">Afro-Jazz</h4>
       <div class="d-flex overflow-auto gap-3 pb-3">
         <!--Add a data-song attribute to each "Play" button to store the song path. This allows JavaScript to dynamically retrieve the song path when the button is clicked.-->
         <div class="card glassmorphism text-white" style="width: 200px;">
-          <img src="codplay.jpg" class="card-img-top" alt="Artist 1">
           <div class="card-body">
-            <h5 class="card-title">Major Lazer</h5>
+            <h5 class="card-title">Stiga Sola</h5>
             <p class="card-text">Coldplay</p>
             <button class="btn btn-custom-orange w-100 play-button" data-song="Major_Lazer_-_Cold_Water__feat._Justin_Bieber___MØ__[Official_Dance_Video](128k).m4a">Play</button>
           </div>
         </div>
         
         <div class="card glassmorphism text-white" style="width: 200px;">
-          <img src="2.jpg" class="card-img-top" alt="Artist 2">
           <div class="card-body">
             <h5 class="card-title">Francis_Mercier</h5>
             <p class="card-text">Kamili</p>
@@ -193,7 +195,6 @@
         </div>
         
         <div class="card glassmorphism text-white" style="width: 200px;">
-          <img src="3.jpg" class="card-img-top" alt="Artist 1">
           <div class="card-body">
             <h5 class="card-title">Artist One</h5>
             <p class="card-text">Hit Single: "Lights On"</p>
@@ -201,7 +202,6 @@
           </div>
         </div>
         <div class="card glassmorphism text-white" style="width: 200px;">
-          <img src="4.jpg" class="card-img-top" alt="Artist 1">
           <div class="card-body">
             <h5 class="card-title">Artist One</h5>
             <p class="card-text">Hit Single: "Lights On"</p>
@@ -210,12 +210,9 @@
         </div>
      </div>
 
-     <h4 class="mt-5 mb-3">Trending Now</h4>
-
-
+     <h4 class="heading mb-3">Trending Now</h4>
       <div class="d-flex overflow-auto gap-3 pb-3">
         <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
           <div class="card-body">
             <h5 class="card-title">Artist One</h5>
             <p class="card-text">Hit Single: "Lights On"</p>
@@ -224,7 +221,6 @@
         </div>
         
         <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <img src="images/artist2.jpg" class="card-img-top" alt="Artist 2">
           <div class="card-body">
             <h5 class="card-title">Artist Two</h5>
             <p class="card-text">Album: "Red Reign"</p>
@@ -233,7 +229,6 @@
         </div>
         
         <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
           <div class="card-body">
             <h5 class="card-title">Artist One</h5>
             <p class="card-text">Hit Single: "Lights On"</p>
@@ -241,7 +236,6 @@
           </div>
         </div>
         <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
           <div class="card-body">
             <h5 class="card-title">Artist One</h5>
             <p class="card-text">Hit Single: "Lights On"</p>
@@ -250,10 +244,9 @@
         </div>
      </div>
 
-     <h4 class="mt-5 mb-3">Trending Now</h4>
+     <h4 class="heading mt-5 mb-3">Gospel</h4>
       <div class="d-flex overflow-auto gap-3 pb-3">
         <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
           <div class="card-body">
             <h5 class="card-title">Artist One</h5>
             <p class="card-text">Hit Single: "Lights On"</p>
@@ -261,7 +254,6 @@
           </div>
         </div>
         <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <img src="images/artist2.jpg" class="card-img-top" alt="Artist 2">
           <div class="card-body">
             <h5 class="card-title">Artist Two</h5>
             <p class="card-text">Album: "Red Reign"</p>
@@ -270,7 +262,6 @@
         </div>
         
         <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
           <div class="card-body">
             <h5 class="card-title">Artist One</h5>
             <p class="card-text">Hit Single: "Lights On"</p>
@@ -278,7 +269,6 @@
           </div>
         </div>
         <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
           <div class="card-body">
             <h5 class="card-title">Artist One</h5>
             <p class="card-text">Hit Single: "Lights On"</p>
@@ -287,10 +277,9 @@
         </div>
      </div>
 
-     <h4 class="mt-5 mb-3">Trending Now</h4>
+     <h4 class="heading mt-5 mb-3">Classics</h4>
       <div class="d-flex overflow-auto gap-3 pb-3">
         <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
           <div class="card-body">
             <h5 class="card-title">Artist One</h5>
             <p class="card-text">Hit Single: "Lights On"</p>
@@ -298,7 +287,6 @@
           </div>
         </div>
         <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <img src="images/artist2.jpg" class="card-img-top" alt="Artist 2">
           <div class="card-body">
             <h5 class="card-title">Artist Two</h5>
             <p class="card-text">Album: "Red Reign"</p>
@@ -307,7 +295,6 @@
         </div>
         
         <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
           <div class="card-body">
             <h5 class="card-title">Artist One</h5>
             <p class="card-text">Hit Single: "Lights On"</p>
@@ -315,7 +302,6 @@
           </div>
         </div>
         <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <img src="images/artist1.jpg" class="card-img-top" alt="Artist 1">
           <div class="card-body">
             <h5 class="card-title">Artist One</h5>
             <p class="card-text">Hit Single: "Lights On"</p>
@@ -326,9 +312,9 @@
     
     </main>
 
-    <!-- Ad Section -->
-    <!-- Ad Section -->
+    
      <!-- Ad Section -->
+
     <!-- Add this hidden audio element near the top of the body -->
 <audio id="globalAudioPlayer" style="display: none;"></audio>
 
@@ -342,7 +328,7 @@
   </div>
 
   <!-- Updated Player Controls -->
-  <!-- PASTE THIS INSTEAD -->
+  
 <div id="player-controls" class="bg-custom-orange text-white p-3">
   <div class="d-flex gap-1">
     <div class="wave" style="height: 15px; animation-duration: 1s;"></div>
