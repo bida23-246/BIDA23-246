@@ -10,9 +10,16 @@
  <style>
 
   /* Main */
-  main { flex: 1;     
+  main { flex: 1; 
+    display: flex; /* Enable Flexbox */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center-align text */
+  padding: 2rem; /* Add padding for better spacing */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  
   }
-
   main h4 { margin-top: 1.5rem; margin-bottom: 0.5rem; }
 
   .leftbar { justify-content: center;}
@@ -21,26 +28,24 @@
   header nav button { border-color: white; color: white; transition: all 0.3s ease-in-out; }
   header nav button:hover { background-color: white; color: #dc3545; }
 
-/* Responsive tweaks */
   @media (max-width: 768px) { aside { display: none; }
   .container-fluid > .row > main { width: 100%; }
-  /* Make the header buttons stacked on mobile */ 
   header nav { flex-direction: column; align-items: center; } }
 
    /* current  styles */
-  .bg-custom-orange { background-color: #0d1b2a } /* Player controls background */
+  .bg-custom-orange { background: #8fb1ba; } 
   .btn-custom-orange { background-color: #ff7200; /* Button colours */
                        color: white;
                        border: none;}
 
-   btn-custom-orange:hover { background-color: #e66a00; /* Slightly darker orange for hover effect */
+   btn-custom-orange:hover { background-color: #e66a00; 
                              color: white; }
 
   .glassmorphism {
     background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
     backdrop-filter: blur(10px); /* Blur effect */
     -webkit-backdrop-filter: blur(10px); /* Safari support */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    border: 1px solid rgba(255, 255, 255, 0.2); 
     border-radius: 10px; /* Current */ }
 
      /* Interactive elements styling */
@@ -68,36 +73,49 @@
                top: 0; 
                height: 100vh; 
                overflow-y: auto; }
+
+    .leftbar ul , .card-body  {background: #8fb1ba;
+                               border-radius: 20px;}
+    .leftbar ul {height: 280px;}
+    .searchbar { background: #8fb1ba; /* Same background as pricing-card */
+                 border-radius: 20px; 
+                 padding: 2rem; /* Inner padding */
+                 margin-top: 7.75rem;
+                 backdrop-filter: blur(16px); /* Blur effect */
+                 box-shadow: 0 0 20px rgba(0, 255, 255, 0.1); /* Subtle shadow */
+                 border: 1px solid rgba(255, 255, 255, 0.1); /* Border style */
+                 transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */}
                 
 
     /* Aside */
-  #progressBar {
-    height: 4px; /* Adjust the height to make it thinner */
-    background-color: #ff7200; /* Optional: Change the background color */
-    border-radius: 2px; /* Optional: Add rounded corners */}
-
-    /* Ensure spacing between advert and controls */
+    #progressBar {
+                height: 4px; 
+                background-color: #ff7200; 
+                border-radius: 2px; }
     #player-controls {
-    margin-top: 20px; /* Add spacing above the controls */
-    border-radius: 10px; /* Optional: Add rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better visibility */}
-
-    /* Adjust the Now Playing section */
+                height: 220px; /* Recommended height */
+                margin-top: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 10px;}
     .now-playing {
-      max-width: 70%; /* Ensure it doesn't take too much space */}
+    max-width: 70%; }
     #player-controls .btn {
-      padding: 5px 10px; /* Adjust button size */}
+    padding: 5px 10px; /* Adjust button size */}
     #player-controls .btn-custom-orange {
-      margin-top: 5px; /}
+    margin-top: 5px; /}
     .now-playing {
-      display: flex;
-      align-items: center;
-      gap: 10px; /* Space between album art and text */
-      width: 100%; /* Full width */
-      justify-content: flex-start; }
-      .now-playing p {
-      text-align: center; 
-      color:#ff7200; }
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between album art and text */
+    width: 100%;
+    justify-content: flex-start; }
+          .now-playing p {
+          text-align: center; 
+          color:#ff7200; }
     #player-controls .d-flex {
       margin-top: 10px; 
       justify-content: center; 
@@ -121,7 +139,7 @@
         <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
         <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
         <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-        <li class="nav-item"><a class="nav-link" href="music.html">Play Music</a></li>
+        <li class="nav-item"><a class="nav-link active" href="music.html">Play Music</a></li>
       </ul>
     </div>
   </div>
@@ -148,98 +166,99 @@
   <div class="row">
     <!-- Leftbar -->
     <nav class="leftbar col-md-2 p-4 d-none d-md-block bg-dark" style="position: sticky; top: 0; height: 100vh; overflow-y: auto;">
-      <h5 class="mb-3"> Playlists</h5>
+      <h5 class="heading mb-3"> Playlists</h5>
       <ul class="nav flex-column">
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Vibes Only</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Party Bangers</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Chill Mode</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Featured Artist</a></li>
         <hr class="text-white" />
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Workout Boost</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Road Trip</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Study Beats</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Afro-Jazz</a></li>
         <hr class="text-white" />
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Favorites</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Recently Played</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Top Charts</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Gospel</a></li>
         <hr class="text-white" />
-        <li class="nav-item"><a href="#" class="nav-link text-white"> New Releases</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Discover Weekly</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Daily Mix</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"> Classics</a></li>
       </ul>
+      <!-- Search Card -->
+      <div class="searchbar text-white">
+        <h5 class="heading text-center mb-3">Search Music</h5>
+        <form>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Search by title or artist" style="border-radius: 10px;">
+          </div>
+          <button type="submit" class="btn-custom-orange btn-dark w-100">Search</button>
+        </form>
+      </div>
     </nav>
-
     
     <!-- Main -->
     <main class="col-md-8 p-4">
       <h4 class="heading mb-3">Discover Your Next Favorite Track</h4>
-      <p>StreamX is your ultimate destination for music streaming. Whether you're into pop, rock, hip-hop, or electronic, we have something for everyone.</p>
+      <p>StreamX is your ultimate destination for music streaming. Whether you're into gospel, jazz or classics, we have something for everyone.</p>
       
+      <h4 class="heading mb-3">Featured Artist: Stiger Sola</h4>
+      <div class="d-flex overflow-auto gap-3 pb-3">
+        <!--Add a data-song attribute to each "Play" button to store the song path. This allows JavaScript to dynamically retrieve the song path when the button is clicked.-->
+        <div class="card glassmorphism text-white" style="width: 200px;">
+          <div class="card-body">
+            <h5 class="card-title">Stiger Sola</h5>
+            <p class="card-text">Kachire</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Stiger_Sola-Kachire.mp3.">Play</button>
+          </div>
+        </div>
+        
+        <div class="card glassmorphism text-white" style="width: 200px;">
+          <div class="card-body">
+            <h5 class="card-title">Stiger Sola</h5>
+            <p class="card-text">Ngwanuza</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Stiger_Sola-Ngwanuza.mp3">Play</button>
+          </div>
+        </div>
+        
+        <div class="card glassmorphism text-white" style="width: 200px;">
+          <div class="card-body">
+            <h5 class="card-title">Stiger Sola</h5>
+            <p class="card-text">Kani Ndiri Kanakyo</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Stiger_Sola-Kani_ndiri_kanakyo.mp3">Play</button>
+          </div>
+        </div>
+        <div class="card glassmorphism text-white" style="width: 200px;">
+          <div class="card-body">
+            <h5 class="card-title">Stiger Sola</h5>
+            <p class="card-text">Mamelodi</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Stiger_Sola-Mamelodi__Botswana.mp3">Play</button>
+          </div>
+        </div>
+     </div>
 
       <h4 class="heading mb-3">Afro-Jazz</h4>
       <div class="d-flex overflow-auto gap-3 pb-3">
         <!--Add a data-song attribute to each "Play" button to store the song path. This allows JavaScript to dynamically retrieve the song path when the button is clicked.-->
         <div class="card glassmorphism text-white" style="width: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Stiga Sola</h5>
-            <p class="card-text">Coldplay</p>
-            <button class="btn btn-custom-orange w-100 play-button" data-song="Major_Lazer_-_Cold_Water__feat._Justin_Bieber___MØ__[Official_Dance_Video](128k).m4a">Play</button>
+            <h5 class="card-title">Lizibo</h5>
+            <p class="card-text">Malebeswa</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/LIZIBO_-_MALEBESWA.mp3">Play</button>
           </div>
         </div>
         
         <div class="card glassmorphism text-white" style="width: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Francis_Mercier</h5>
-            <p class="card-text">Kamili</p>
-            <button class="btn btn-custom-orange w-100 play-button" data-song="C:/Users/pmokh/Desktop/Francis_Mercier,_Nitefreak,_Idd_Aziz_-_Kamili__Official_Full_Stream_(128k).m4a">Play</button>
+            <h5 class="card-title">Sereetsi</h5>
+            <p class="card-text">Robete</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Sereetsi___the_Natives_Robete.mp3">Play</button>
           </div>
         </div>
         
         <div class="card glassmorphism text-white" style="width: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Artist One</h5>
-            <p class="card-text">Hit Single: "Lights On"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
+            <h5 class="card-title">Duncan Senyatso</h5>
+            <p class="card-text">Sheleng</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Duncan_Senyatso___The_Kgwanyape_Band____Sheleng.mp3">Play</button>
           </div>
         </div>
         <div class="card glassmorphism text-white" style="width: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Artist One</h5>
-            <p class="card-text">Hit Single: "Lights On"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
-          </div>
-        </div>
-     </div>
-
-     <h4 class="heading mb-3">Trending Now</h4>
-      <div class="d-flex overflow-auto gap-3 pb-3">
-        <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <div class="card-body">
-            <h5 class="card-title">Artist One</h5>
-            <p class="card-text">Hit Single: "Lights On"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
-          </div>
-        </div>
-        
-        <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <div class="card-body">
-            <h5 class="card-title">Artist Two</h5>
-            <p class="card-text">Album: "Red Reign"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
-          </div>
-        </div>
-        
-        <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <div class="card-body">
-            <h5 class="card-title">Artist One</h5>
-            <p class="card-text">Hit Single: "Lights On"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
-          </div>
-        </div>
-        <div class="card glassmorphism text-white" style="min-width: 200px;">
-          <div class="card-body">
-            <h5 class="card-title">Artist One</h5>
-            <p class="card-text">Hit Single: "Lights On"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
+            <h5 class="card-title">S. Moruakgomo</h5>
+            <p class="card-text">Lefatshe</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Socca_Moruakgomo_Lefatshe.mp3">Play</button>
           </div>
         </div>
      </div>
@@ -248,31 +267,31 @@
       <div class="d-flex overflow-auto gap-3 pb-3">
         <div class="card glassmorphism text-white" style="min-width: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Artist One</h5>
-            <p class="card-text">Hit Single: "Lights On"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
+            <h5 class="card-title">Tshepo Lesole</h5>
+            <p class="card-text">Nkabo ke le kae</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Tshepo_Lesole__Nkabo_ke_le_kae.mp3">Play</button>
           </div>
         </div>
         <div class="card glassmorphism text-white" style="min-width: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Artist Two</h5>
-            <p class="card-text">Album: "Red Reign"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
+            <h5 class="card-title">Keba Phiri</h5>
+            <p class="card-text">Roma Nna</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Keba_Phiri_Roma_Nna.mp3">Play</button>
           </div>
         </div>
         
         <div class="card glassmorphism text-white" style="min-width: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Artist One</h5>
-            <p class="card-text">Hit Single: "Lights On"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
+            <h5 class="card-title">Andile B</h5>
+            <p class="card-text">Ke tsamaya le Jeso</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/ANDILE_B_Ke_Tsamaya_Le_Jeso.mp3">Play</button>
           </div>
         </div>
         <div class="card glassmorphism text-white" style="min-width: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Artist One</h5>
-            <p class="card-text">Hit Single: "Lights On"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
+            <h5 class="card-title">Kabelo Eric</h5>
+            <p class="card-text">Morekolodi</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Kabelo_Eric-Morekolodi.mp3">Play</button>
           </div>
         </div>
      </div>
@@ -281,49 +300,46 @@
       <div class="d-flex overflow-auto gap-3 pb-3">
         <div class="card glassmorphism text-white" style="min-width: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Artist One</h5>
-            <p class="card-text">Hit Single: "Lights On"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
+            <h5 class="card-title">Deben Natale</h5>
+            <p class="card-text">Ha re nyadisa</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Deben_Natale-Ha_re_nyadisa.mp3">Play</button>
           </div>
         </div>
         <div class="card glassmorphism text-white" style="min-width: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Artist Two</h5>
-            <p class="card-text">Album: "Red Reign"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
+            <h5 class="card-title">Hugh Masekela</h5>
+            <p class="card-text">Thanayi</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Hugh_Masekela-_Thanayi.mp3">Play</button>
           </div>
         </div>
         
         <div class="card glassmorphism text-white" style="min-width: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Artist One</h5>
-            <p class="card-text">Hit Single: "Lights On"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
+            <h5 class="card-title">Matsieng</h5>
+            <p class="card-text">Khudutlou</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/KHUDUTLOU-MATSIENG.mp3">Play</button>
           </div>
         </div>
         <div class="card glassmorphism text-white" style="min-width: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Artist One</h5>
-            <p class="card-text">Hit Single: "Lights On"</p>
-            <button class="btn btn-custom-orange w-100">Play</button>
+            <h5 class="card-title">Thulie</h5>
+            <p class="card-text">Maphuthadichaba</p>
+            <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Thulie-Maphuthadichaba.mp3">Play</button>
           </div>
         </div>
      </div>
     
     </main>
 
-    
-     <!-- Ad Section -->
-
-    <!-- Add this hidden audio element near the top of the body -->
+    <!-- hidden audio element -->
 <audio id="globalAudioPlayer" style="display: none;"></audio>
 
-<!-- Updated ad section with working controls -->
+<!-- ad section  -->
 <aside class="col-md-2 bg-dark p-3 d-none d-md-block" style="position: sticky; top: 0; height: 100vh; overflow-y: auto;">
   <h5 class="mb-3 text-warning">Sponsored</h5>
   <div class="d-flex flex-column align-items-center text-center">
     <img src="ad.jpg" alt="Ad Banner" class="img-fluid rounded mb-3" style="width: 100%; height: auto;">
-    <p class="mb-1"><strong>Upgrade Your Sound!</strong></p>
+    <p class="mb-1"><strong>Upgrade Your Art Collection!</strong></p>
     <a href="#" class="btn btn-custom-orange btn-sm mb-3">Shop Now</a>
   </div>
 
@@ -356,8 +372,7 @@
   </div>
 </div>
 </aside>
-    <!-- Ad Section End -->
-    <!-- ... (previous code remains unchanged) ... -->
+
 
     <!-- Ad Section End -->
   </div> <!-- Close the first row -->
