@@ -1,0 +1,59 @@
+/* Pricing */
+  .pricing-hero {height: 100vh;}
+
+  .pricing-card {
+    background: #8fb1ba;
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;}
+  
+  .pricing-card:hover {
+    transform: perspective(600px) rotateY(3deg) scale(1.05);
+    box-shadow: 0 0 80px rgba(255, 87, 34, 0.5);}
+  
+  .price-badge {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff5722;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
+}
+  
+  .pricing-card ul {
+    list-style: none;
+    padding-left: 0; }
+  
+  .pricing-card li {
+    margin: 0.6rem 0;
+    font-size: 1rem;}
+  
+  .pricing-card li i {
+    color: #ff5722;
+    margin-right: 8px;}
+  
+  /* Accordion */
+  .accordion-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 1rem;}
+  
+  .accordion-button {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;}
+
+  .accordion-button:not(.collapsed) {
+    background-color: #00ffc3;
+    color: #000; }
+
+  .accordion-body {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #f1f1f1;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);}

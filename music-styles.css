@@ -1,0 +1,157 @@
+/* Main */
+  main { flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    padding: 2rem; 
+    overflow-y: auto; 
+  
+  }
+  main h4 { 
+    margin-top: 1.5rem; 
+    margin-bottom: 0.5rem; }
+
+  .card-songs {
+  min-width: 200px;
+  flex: 0 0 auto;
+    }
+
+    @media (max-width: 480px) {
+      .card-songs {
+        min-width: 160px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .card-songs {
+        min-width: 140px;
+      }
+    }
+
+
+  .leftbar { 
+    justify-content: center;}
+
+  .logo { 
+    font-weight: bold; 
+    font-size: 1.5rem; }
+  header nav button { 
+    border-color: white; 
+    color: white; 
+    transition: all 0.3s ease-in-out; }
+  header nav button:hover { 
+    background-color: white; 
+    color: #dc3545; }
+
+  @media (max-width: 768px) { aside { display: none; }
+  .container-fluid > .row > main { width: 100%; }
+  header nav { flex-direction: column; align-items: center; } }
+
+   /* current  styles */
+  .player { 
+    background: #8fb1ba; } 
+
+  .btn-custom-orange { 
+    background-color: #ff5722; 
+    color: white; 
+    border: none; }
+
+  .btn-custom-orange:hover { 
+    background-color: #e66a00; 
+    color: white; 
+  }
+   
+  
+
+     /* Interactive elements styling */
+
+     /* Wave Animation */
+    @keyframes wave {
+      0%,
+      100% {
+        transform: scaleY(1);
+      }
+
+      50% {
+        transform: scaleY(2);
+      }
+    }
+
+    .wave {
+      display: inline-block;
+      width: 3px;
+      background: #ff5722;
+      animation: wave 1s infinite ease-in-out;
+    }
+
+    .leftbar { 
+      position: sticky; 
+      top: 0s; 
+      height: 100vh; 
+      overflow-y: auto; }
+
+    .leftbar ul , .card-body  {
+      background: #8fb1ba;
+      border-radius: 20px;}
+    .leftbar ul {
+      height: 280px;}
+    .searchbar { 
+      background: #8fb1ba;      
+      border-radius: 20px; 
+      padding: 2rem; 
+      margin-top: 7.75rem;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1); 
+      border: 1px solid rgba(255, 255, 255, 0.1); 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; }
+
+    /* Aside */
+    #progressBar {
+      height: 4px; 
+      background-color: #ff7200; 
+      border-radius: 2px; }
+
+    #player-controls {
+      height: 220px; 
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px;}
+
+    .now-playing {
+      max-width: 70%; }
+
+    #player-controls .btn {
+      padding: 5px 10px; }
+
+    #player-controls .btn-custom-orange {
+      margin-top: 5px; }
+
+    .now-playing {
+      display: flex;
+      align-items: center;
+      gap: 10px; 
+       width: 100%;
+      justify-content: flex-start; }
+
+    .now-playing p {
+      text-align: center; 
+      color:#ff7200; }
+
+    #player-controls .d-flex {
+      margin-top: 10px; 
+      justify-content: center; 
+      gap: 10px; }
+
+    .col-md-2.bg-dark {
+      padding: 10px; }
+
+    .searchbar:hover, .leftbar ul:hover {
+      transform: perspective(600px) rotateY(3deg) scale(1.05);
+      box-shadow: 0 0 80px rgba(255, 87, 34, 0.5); }
+
