@@ -6,123 +6,8 @@
   <title>StreamX - Home</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
- <style>
-
-  /* Main */
-  main { flex: 1; 
-    display: flex; /* Enable Flexbox */
-  flex-direction: column; /* Stack items vertically */
-  justify-content: center; /* Center items vertically */
-  align-items: center; /* Center items horizontally */
-  text-align: center; /* Center-align text */
-  padding: 2rem; /* Add padding for better spacing */
-  overflow-y: auto; /* Allow scrolling if content overflows */
-  
-  }
-  main h4 { margin-top: 1.5rem; margin-bottom: 0.5rem; }
-
-  .leftbar { justify-content: center;}
-
-  .logo { font-weight: bold; font-size: 1.5rem; }
-  header nav button { border-color: white; color: white; transition: all 0.3s ease-in-out; }
-  header nav button:hover { background-color: white; color: #dc3545; }
-
-  @media (max-width: 768px) { aside { display: none; }
-  .container-fluid > .row > main { width: 100%; }
-  header nav { flex-direction: column; align-items: center; } }
-
-   /* current  styles */
-  .bg-custom-orange { background: #8fb1ba; } 
-  .btn-custom-orange { background-color: #ff7200; /* Button colours */
-                       color: white;
-                       border: none;}
-
-   btn-custom-orange:hover { background-color: #e66a00; 
-                             color: white; }
-
-  .glassmorphism {
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
-    backdrop-filter: blur(10px); /* Blur effect */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-    border: 1px solid rgba(255, 255, 255, 0.2); 
-    border-radius: 10px; /* Current */ }
-
-     /* Interactive elements styling */
-
-     /* Wave Animation */
-    @keyframes wave {
-      0%,
-      100% {
-        transform: scaleY(1);
-      }
-
-      50% {
-        transform: scaleY(2);
-      }
-    }
-
-    .wave {
-      display: inline-block;
-      width: 3px;
-      background: #ff5722;
-      animation: wave 1s infinite ease-in-out;
-    }
-
-    .leftbar { position: sticky; 
-               top: 0; 
-               height: 100vh; 
-               overflow-y: auto; }
-
-    .leftbar ul , .card-body  {background: #8fb1ba;
-                               border-radius: 20px;}
-    .leftbar ul {height: 280px;}
-    .searchbar { background: #8fb1ba; /* Same background as pricing-card */
-                 border-radius: 20px; 
-                 padding: 2rem; /* Inner padding */
-                 margin-top: 7.75rem;
-                 backdrop-filter: blur(16px); /* Blur effect */
-                 box-shadow: 0 0 20px rgba(0, 255, 255, 0.1); /* Subtle shadow */
-                 border: 1px solid rgba(255, 255, 255, 0.1); /* Border style */
-                 transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */}
-                
-
-    /* Aside */
-    #progressBar {
-                height: 4px; 
-                background-color: #ff7200; 
-                border-radius: 2px; }
-    #player-controls {
-                height: 220px; /* Recommended height */
-                margin-top: 20px;
-                border-radius: 10px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                padding: 10px;}
-    .now-playing {
-    max-width: 70%; }
-    #player-controls .btn {
-    padding: 5px 10px; /* Adjust button size */}
-    #player-controls .btn-custom-orange {
-    margin-top: 5px; /}
-    .now-playing {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Space between album art and text */
-    width: 100%;
-    justify-content: flex-start; }
-          .now-playing p {
-          text-align: center; 
-          color:#ff7200; }
-    #player-controls .d-flex {
-      margin-top: 10px; 
-      justify-content: center; 
-      gap: 10px; /* Space between buttons */}
-    .col-md-2.bg-dark {
-      padding: 10px; /}
-  </style>
+  <link href="common-styles.css" rel="stylesheet">
+  <link href="music-styles.css" rel="stylesheet">
 </head>
 <body class="bg-success text-white">
 
@@ -145,58 +30,44 @@
   </div>
 </nav>
 
-<!-- Offcanvas Playlist for Mobile -->
-<div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="mobilePlaylist">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title">Your Playlist</h5>
-    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-  </div>
-  <div class="offcanvas-body">
-    <ul class="nav flex-column">
-      <li class="nav-item"><a href="#" class="nav-link text-white">1. Vibes Only</a></li>
-      <li class="nav-item"><a href="#" class="nav-link text-white">2. Party Bangers</a></li>
-      <li class="nav-item"><a href="#" class="nav-link text-white">3. Chill Mode</a></li>
-      <li class="nav-item"><a href="#" class="nav-link text-white">4. Workout Boost</a></li>
-    </ul>
-  </div>
-</div>
+
 
 <!-- Content -->
 <div class="container-fluid">
   <div class="row">
     <!-- Leftbar -->
     <nav class="leftbar col-md-2 p-4 d-none d-md-block bg-dark" style="position: sticky; top: 0; height: 100vh; overflow-y: auto;">
-      <h5 class="heading mb-3"> Playlists</h5>
+      <h5 class="heading-color2 mb-3"> Playlists</h5>
       <ul class="nav flex-column">
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Featured Artist</a></li>
+        <li class="nav-item"><a href="#featured" class="nav-link text-white"> Featured Artist</a></li>
         <hr class="text-white" />
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Afro-Jazz</a></li>
+        <li class="nav-item"><a href="#afro-jazz" class="nav-link text-white"> Afro-Jazz</a></li>
         <hr class="text-white" />
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Gospel</a></li>
+        <li class="nav-item"><a href="#gospel" class="nav-link text-white"> Gospel</a></li>
         <hr class="text-white" />
-        <li class="nav-item"><a href="#" class="nav-link text-white"> Classics</a></li>
+        <li class="nav-item"><a href="#classics" class="nav-link text-white"> Classics</a></li>
       </ul>
       <!-- Search Card -->
       <div class="searchbar text-white">
-        <h5 class="heading text-center mb-3">Search Music</h5>
-        <form>
+        <h5 class="heading-color2 text-center mb-3">Search Music</h5>
+        <form onsubmit="return false;">
           <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Search by title or artist" style="border-radius: 10px;">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search by title or artist" style="border-radius: 10px;" oninput="filterCards()">
           </div>
-          <button type="submit" class="btn-custom-orange btn-dark w-100">Search</button>
+          <button type="button" class="btn-custom-orange btn-dark w-100" onclick="filterCards()">Search</button>
         </form>
       </div>
     </nav>
     
     <!-- Main -->
     <main class="col-md-8 p-4">
-      <h4 class="heading mb-3">Discover Your Next Favorite Track</h4>
+      <h4 class="heading-color mb-3">Discover Your Next Favorite Track</h4>
       <p>StreamX is your ultimate destination for music streaming. Whether you're into gospel, jazz or classics, we have something for everyone.</p>
       
-      <h4 class="heading mb-3">Featured Artist: Stiger Sola</h4>
-      <div class="d-flex overflow-auto gap-3 pb-3">
-        <!--Add a data-song attribute to each "Play" button to store the song path. This allows JavaScript to dynamically retrieve the song path when the button is clicked.-->
-        <div class="card glassmorphism text-white" style="width: 200px;">
+      <h4 id="featured" class="heading-color2 mb-3">Featured Artist: Stiger Sola</h4>
+      <div class="d-flex flex-wrap flex-md-row flex-column gap-3 pb-3">
+        <!--Added a data-song attribute to each "Play" button to store the song path. This allows JavaScript to dynamically retrieve the song path when the button is clicked.-->
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Stiger Sola</h5>
             <p class="card-text">Kachire</p>
@@ -204,7 +75,7 @@
           </div>
         </div>
         
-        <div class="card glassmorphism text-white" style="width: 200px;">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Stiger Sola</h5>
             <p class="card-text">Ngwanuza</p>
@@ -212,14 +83,14 @@
           </div>
         </div>
         
-        <div class="card glassmorphism text-white" style="width: 200px;">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Stiger Sola</h5>
             <p class="card-text">Kani Ndiri Kanakyo</p>
             <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Stiger_Sola-Kani_ndiri_kanakyo.mp3">Play</button>
           </div>
         </div>
-        <div class="card glassmorphism text-white" style="width: 200px;">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Stiger Sola</h5>
             <p class="card-text">Mamelodi</p>
@@ -228,10 +99,10 @@
         </div>
      </div>
 
-      <h4 class="heading mb-3">Afro-Jazz</h4>
-      <div class="d-flex overflow-auto gap-3 pb-3">
-        <!--Add a data-song attribute to each "Play" button to store the song path. This allows JavaScript to dynamically retrieve the song path when the button is clicked.-->
-        <div class="card glassmorphism text-white" style="width: 200px;">
+      <h4 id="afro-jazz" class="heading-color2 mb-3">Afro-Jazz</h4>
+      <div class="d-flex flex-wrap flex-md-row flex-column gap-3 pb-3">
+        <!--Added a data-song attribute to each "Play" button to store the song path. This allows JavaScript to dynamically retrieve the song path when the button is clicked.-->
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Lizibo</h5>
             <p class="card-text">Malebeswa</p>
@@ -239,7 +110,7 @@
           </div>
         </div>
         
-        <div class="card glassmorphism text-white" style="width: 200px;">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Sereetsi</h5>
             <p class="card-text">Robete</p>
@@ -247,14 +118,14 @@
           </div>
         </div>
         
-        <div class="card glassmorphism text-white" style="width: 200px;">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Duncan Senyatso</h5>
             <p class="card-text">Sheleng</p>
             <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Duncan_Senyatso___The_Kgwanyape_Band____Sheleng.mp3">Play</button>
           </div>
         </div>
-        <div class="card glassmorphism text-white" style="width: 200px;">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">S. Moruakgomo</h5>
             <p class="card-text">Lefatshe</p>
@@ -263,16 +134,16 @@
         </div>
      </div>
 
-     <h4 class="heading mt-5 mb-3">Gospel</h4>
-      <div class="d-flex overflow-auto gap-3 pb-3">
-        <div class="card glassmorphism text-white" style="min-width: 200px;">
+     <h4 id="gospel" class="heading-color2 mt-5 mb-3">Gospel</h4>
+     <div class="d-flex flex-wrap flex-md-row flex-column gap-3 pb-3">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Tshepo Lesole</h5>
             <p class="card-text">Nkabo ke le kae</p>
             <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Tshepo_Lesole__Nkabo_ke_le_kae.mp3">Play</button>
           </div>
         </div>
-        <div class="card glassmorphism text-white" style="min-width: 200px;">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Keba Phiri</h5>
             <p class="card-text">Roma Nna</p>
@@ -280,14 +151,14 @@
           </div>
         </div>
         
-        <div class="card glassmorphism text-white" style="min-width: 200px;">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Andile B</h5>
             <p class="card-text">Ke tsamaya le Jeso</p>
             <button class="btn btn-custom-orange w-100 play-button" data-song="songs/ANDILE_B_Ke_Tsamaya_Le_Jeso.mp3">Play</button>
           </div>
         </div>
-        <div class="card glassmorphism text-white" style="min-width: 200px;">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Kabelo Eric</h5>
             <p class="card-text">Morekolodi</p>
@@ -296,16 +167,16 @@
         </div>
      </div>
 
-     <h4 class="heading mt-5 mb-3">Classics</h4>
-      <div class="d-flex overflow-auto gap-3 pb-3">
-        <div class="card glassmorphism text-white" style="min-width: 200px;">
+     <h4 id="classics" class="heading-color2 mt-5 mb-3">Classics</h4>
+     <div class="d-flex flex-wrap flex-md-row flex-column gap-3 pb-3">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Deben Natale</h5>
             <p class="card-text">Ha re nyadisa</p>
             <button class="btn btn-custom-orange w-100 play-button" data-song="songs/Deben_Natale-Ha_re_nyadisa.mp3">Play</button>
           </div>
         </div>
-        <div class="card glassmorphism text-white" style="min-width: 200px;">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Hugh Masekela</h5>
             <p class="card-text">Thanayi</p>
@@ -313,14 +184,14 @@
           </div>
         </div>
         
-        <div class="card glassmorphism text-white" style="min-width: 200px;">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Matsieng</h5>
             <p class="card-text">Khudutlou</p>
             <button class="btn btn-custom-orange w-100 play-button" data-song="songs/KHUDUTLOU-MATSIENG.mp3">Play</button>
           </div>
         </div>
-        <div class="card glassmorphism text-white" style="min-width: 200px;">
+        <div class="card card-songs text-white">
           <div class="card-body">
             <h5 class="card-title">Thulie</h5>
             <p class="card-text">Maphuthadichaba</p>
@@ -343,38 +214,37 @@
     <a href="#" class="btn btn-custom-orange btn-sm mb-3">Shop Now</a>
   </div>
 
-  <!-- Updated Player Controls -->
+  <!-- Player Controls -->
   
-<div id="player-controls" class="bg-custom-orange text-white p-3">
-  <div class="d-flex gap-1">
-    <div class="wave" style="height: 15px; animation-duration: 1s;"></div>
-    <div class="wave" style="height: 20px; animation-duration: 1.2s;"></div>
-    <div class="wave" style="height: 10px; animation-duration: 0.8s;"></div>
-  </div>
-  <div class="progress mb-2" style="height: 4px;">
-    <div id="progressBar" class="progress-bar bg-warning" role="progressbar" style="width: 0%">
+  <div id="player-controls" class="player text-white p-3">
+    <div class="d-flex gap-1">
+      <div class="wave" style="height: 15px; animation-duration: 1s;"></div>
+      <div class="wave" style="height: 20px; animation-duration: 1.2s;"></div>
+      <div class="wave" style="height: 10px; animation-duration: 0.8s;"></div>
+    </div>
+    <div class="progress mb-2" style="height: 4px;">
+      <div id="progressBar" class="progress-bar bg-warning" role="progressbar" style="width: 0%">
+      </div>
+    </div>
+    <div class="now-playing bg-dark text-white p-2 rounded mb-3">
+      <p class="mb-1" id="currentSongTitle">No song playing</p>
+      <p class="mb-0 text-muted" id="currentArtist">-</p>
+    </div>
+    <div class="d-flex justify-content-center gap-2">
+      <button class="btn btn-dark btn-sm" onclick="skipBackward()">
+        <i class="bi bi-skip-backward-fill"></i>
+      </button>
+      <button class="btn btn-dark btn-sm" onclick="togglePlayPause()" id="playPauseBtn">
+        <i class="bi bi-play-fill" id="playPauseIcon"></i>
+      </button>
+      <button class="btn btn-dark btn-sm" onclick="skipForward()">
+        <i class="bi bi-skip-forward-fill"></i>
+      </button>
     </div>
   </div>
-  <div class="now-playing bg-dark text-white p-2 rounded mb-3">
-    <p class="mb-1" id="currentSongTitle">No song playing</p>
-    <p class="mb-0 text-muted" id="currentArtist">-</p>
-  </div>
-  <div class="d-flex justify-content-center gap-2">
-    <button class="btn btn-dark btn-sm" onclick="skipBackward()">
-      <i class="bi bi-skip-backward-fill"></i>
-    </button>
-    <button class="btn btn-dark btn-sm" onclick="togglePlayPause()" id="playPauseBtn">
-      <i class="bi bi-play-fill" id="playPauseIcon"></i>
-    </button>
-    <button class="btn btn-dark btn-sm" onclick="skipForward()">
-      <i class="bi bi-skip-forward-fill"></i>
-    </button>
-  </div>
-</div>
 </aside>
 
 
-    <!-- Ad Section End -->
   </div> <!-- Close the first row -->
 
 </div> <!-- Close container-fluid -->
@@ -385,118 +255,185 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-  //uSe JavaScript to add event listeners to all buttons with the play-button class. When a button is clicked, the corresponding song is played.
-
-  // Add event listeners to all play buttons
   document.addEventListener('DOMContentLoaded', () => {
-  const audioPlayer = document.querySelector('#globalAudioPlayer');
-  const playPauseIcon = document.querySelector('#playPauseIcon');
-  const muteIcon = document.querySelector('#muteIcon');
-  const repeatIcon = document.querySelector('#repeatIcon');
-  let isRepeating = false;
-
-  // Toggle Play/Pause
-  function togglePlayPause() {
-    if (audioPlayer.paused) {
-      audioPlayer.play();
-      playPauseIcon.classList.remove('bi-play-fill');
-      playPauseIcon.classList.add('bi-pause-fill');
-    } else {
-      audioPlayer.pause();
-      playPauseIcon.classList.remove('bi-pause-fill');
-      playPauseIcon.classList.add('bi-play-fill');
-    }
-  }
-
-  // Skip Backward
-  function skipBackward() {
-    audioPlayer.currentTime = Math.max(0, audioPlayer.currentTime - 10); // Go back 10 seconds
-  }
-
-  // Skip Forward
-  function skipForward() {
-    audioPlayer.currentTime = Math.min(audioPlayer.duration, audioPlayer.currentTime + 10); // Go forward 10 seconds
-  }
-
-  // Toggle Mute
-  function toggleMute() {
-    audioPlayer.muted = !audioPlayer.muted;
-    if (audioPlayer.muted) {
-      muteIcon.classList.remove('bi-volume-up-fill');
-      muteIcon.classList.add('bi-volume-mute-fill');
-    } else {
-      muteIcon.classList.remove('bi-volume-mute-fill');
-      muteIcon.classList.add('bi-volume-up-fill');
-    }
-  }
-
-  // Increase Volume
-  function increaseVolume() {
-    if (audioPlayer.volume < 1) {
-      audioPlayer.volume = Math.min(audioPlayer.volume + 0.1, 1); // Increase volume by 0.1
-    }
-  }
-
-  // Decrease Volume
-  function decreaseVolume() {
-    if (audioPlayer.volume > 0) {
-      audioPlayer.volume = Math.max(audioPlayer.volume - 0.1, 0); // Decrease volume by 0.1
-    }
-  }
-
-  // Toggle Repeat
-  function toggleRepeat() {
-    isRepeating = !isRepeating;
-    audioPlayer.loop = isRepeating;
-    if (isRepeating) {
-      repeatIcon.classList.add('text-warning'); // Highlight the repeat icon
-    } else {
-      repeatIcon.classList.remove('text-warning');
-    }
-  }
-
-  // Play selected song
-  const playButtons = document.querySelectorAll('.play-button');
-  playButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const songPath = button.getAttribute('data-song');
-      if (songPath) {
-        audioPlayer.src = songPath; // Set the audio source
-        audioPlayer.play().catch(error => {
-          console.error('Error playing the audio:', error);
-        });
-        playPauseIcon.classList.remove('bi-play-fill');
-        playPauseIcon.classList.add('bi-pause-fill');
+    const audioPlayer = document.querySelector('#globalAudioPlayer');
+    const playPauseIcon = document.querySelector('#playPauseIcon');
+    const muteIcon = document.querySelector('#muteIcon');
+    const repeatIcon = document.querySelector('#repeatIcon');
+    const progressBar = document.querySelector('#progressBar');
+    const playButtons = document.querySelectorAll('.play-button');
+    let isRepeating = false;
+  
+    // Play/pause toggle
+    function togglePlayPause(button) {
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        playPauseIcon.classList.replace('bi-play-fill', 'bi-pause-fill');
+        button.textContent = 'Pause';
+      } else {
+        audioPlayer.pause();
+        playPauseIcon.classList.replace('bi-pause-fill', 'bi-play-fill');
+        button.textContent = 'Play';
       }
+    }
+  
+    // Mute toggle
+    function toggleMute() {
+      audioPlayer.muted = !audioPlayer.muted;
+      muteIcon.classList.toggle('bi-volume-up-fill', !audioPlayer.muted);
+      muteIcon.classList.toggle('bi-volume-mute-fill', audioPlayer.muted);
+    }
+  
+    // Repeat toggle
+    function toggleRepeat() {
+      isRepeating = !isRepeating;
+      audioPlayer.loop = isRepeating;
+      repeatIcon.classList.toggle('text-warning', isRepeating);
+    }
+  
+    // Volume control
+    function increaseVolume() {
+      audioPlayer.volume = Math.min(1, audioPlayer.volume + 0.1);
+    }
+  
+    function decreaseVolume() {
+      audioPlayer.volume = Math.max(0, audioPlayer.volume - 0.1);
+    }
+  
+    // Update progress bar as the song plays
+    audioPlayer.addEventListener('timeupdate', () => {
+      const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+      progressBar.style.width = `${progress}%`;
     });
+  
+    // Song click handler
+    playButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const songPath = button.getAttribute('data-song');
+        const songTitle = button.closest('.card').querySelector('.card-title').textContent;
+        const artist = button.closest('.card').querySelector('.card-text').textContent;
+  
+        if (audioPlayer.src !== songPath) {
+          audioPlayer.src = songPath;
+          audioPlayer.play();
+          playPauseIcon.classList.replace('bi-play-fill', 'bi-pause-fill');
+          document.getElementById('currentSongTitle').textContent = songTitle;
+          document.getElementById('currentArtist').textContent = artist;
+          playButtons.forEach(btn => btn.textContent = 'Play');
+          button.textContent = 'Pause';
+        } else {
+          togglePlayPause(button);
+        }
+      });
+    });
+  
+    // Filter cards by search input
+    document.getElementById('searchInput').addEventListener('input', () => {
+      const searchValue = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+  
+      cards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const artist = card.querySelector('.card-text').textContent.toLowerCase();
+        card.style.display = (title.includes(searchValue) || artist.includes(searchValue)) ? '' : 'none';
+      });
+    });
+  
+    // Attach extra controls if needed
+    document.getElementById('muteBtn')?.addEventListener('click', toggleMute);
+    document.getElementById('repeatBtn')?.addEventListener('click', toggleRepeat);
+    document.getElementById('volUpBtn')?.addEventListener('click', increaseVolume);
+    document.getElementById('volDownBtn')?.addEventListener('click', decreaseVolume);
   });
-});
-
-  // Update progress bar
-  const progressBar = document.querySelector('#progressBar');
-  const audioPlayer = document.querySelector('#globalAudioPlayer');
-  audioPlayer.addEventListener('timeupdate', () => {
-    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-    progressBar.value = progress;
-  });
-
-  // Seek functionality
-  progressBar.addEventListener('input', () => {
-    const seekTime = (progressBar.value / 100) * audioPlayer.duration;
-    audioPlayer.currentTime = seekTime;
-  });
-  document.querySelectorAll('.play-button').forEach(button => {
-  button.addEventListener('click', () => {
-    const songPath = button.dataset.song;
-    const songTitle = button.parentElement.querySelector('.card-title').textContent;
-    const artist = button.parentElement.querySelector('.card-text').textContent;
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const audioPlayer = document.querySelector('#globalAudioPlayer');
+      const playPauseIcon = document.querySelector('#playPauseIcon');
+      const playPauseBtn = document.querySelector('#playPauseBtn');
+      const progressBar = document.querySelector('#progressBar');
+      const playButtons = document.querySelectorAll('.play-button');
+      const currentTitle = document.getElementById('currentSongTitle');
+      const currentArtist = document.getElementById('currentArtist');
     
-    audioPlayer.src = songPath;
-    document.getElementById('currentSongTitle').textContent = songTitle;
-    document.getElementById('currentArtist').textContent = artist;
-  });
-});
-</script>
+      let currentIndex = -1;
+      const tracks = Array.from(playButtons).map(btn => ({
+        path: btn.getAttribute('data-song'),
+        title: btn.closest('.card').querySelector('.card-title').textContent,
+        artist: btn.closest('.card').querySelector('.card-text').textContent
+      }));
+    
+      // === Core Playback ===
+      function playTrack(index) {
+        if (index < 0 || index >= tracks.length) return;
+        currentIndex = index;
+    
+        const track = tracks[currentIndex];
+        audioPlayer.src = track.path;
+        audioPlayer.play();
+        playPauseIcon.classList.replace('bi-play-fill', 'bi-pause-fill');
+        currentTitle.textContent = track.title;
+        currentArtist.textContent = track.artist;
+    
+        playButtons.forEach((btn, i) => {
+          btn.textContent = i === currentIndex ? 'Pause' : 'Play';
+        });
+      }
+    
+      function togglePlayPause() {
+        if (!audioPlayer.src) {
+          playTrack(0);
+        } else if (audioPlayer.paused) {
+          audioPlayer.play();
+          playPauseIcon.classList.replace('bi-play-fill', 'bi-pause-fill');
+          playButtons[currentIndex].textContent = 'Pause';
+        } else {
+          audioPlayer.pause();
+          playPauseIcon.classList.replace('bi-pause-fill', 'bi-play-fill');
+          playButtons[currentIndex].textContent = 'Play';
+        }
+      }
+    
+      function skipForward() {
+        if (currentIndex >= 0 && currentIndex < tracks.length - 1) {
+          playTrack(currentIndex + 1);
+        }
+      }
+    
+      function skipBackward() {
+        if (currentIndex > 0) {
+          playTrack(currentIndex - 1);
+        }
+      }
+    
+      // === Progress Bar ===
+      audioPlayer.addEventListener('timeupdate', () => {
+        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progressBar.style.width = `${progress || 0}%`;
+      });
+    
+      // === Card Play Buttons ===
+      playButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          if (currentIndex === index && !audioPlayer.paused) {
+            audioPlayer.pause();
+            playPauseIcon.classList.replace('bi-pause-fill', 'bi-play-fill');
+            button.textContent = 'Play';
+          } else {
+            playTrack(index);
+          }
+        });
+      });
+    
+      // === Expose functions globally for buttons ===
+      window.togglePlayPause = togglePlayPause;
+      window.skipForward = skipForward;
+      window.skipBackward = skipBackward;
+    });
+    </script>
+    
+
 </body>
 </html>
